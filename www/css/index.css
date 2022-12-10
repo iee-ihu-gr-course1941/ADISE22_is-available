@@ -9,7 +9,7 @@ body {
     height: 100%;
 }
 
-#wrap, #wrap2{
+.wrap {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -17,12 +17,12 @@ body {
     transform: translate(-50%, -50%);
 }
 
-#Dominoes {
+#dominoes_png {
     display: block;
     max-width: 100%;
 }
 
-#Play {
+.button {
     display: block;
     margin: auto;
     background-color: #006491;
@@ -34,21 +34,58 @@ body {
     padding: 14px 40px;
     border-radius: 12px;
 }
-#username , #username1{
+
+#login_button,
+#create_account_button {
+    display: inline;
+}
+
+#username_label {
+    font-family: "Archivo Black";
+    padding: 14px 40px;
+    font-size: 35px;
+    color: #fff7f7;
+}
+
+#username {
     font-family: "Archivo Black";
     border-color: #fff7f7;
     font-size: 30px;
     padding: 14px 40px;
     border-radius: 12px;
 }
-#login ,#create {
+
+.table {
+    font-family: "Archivo Black";
+    border-collapse: collapse;
+    text-align: center;
+    color: #fff7f7;
+    font-size: 30px;
+    width: 100%;
+}
+
+.table th {
+    background-color: #e31837;
+}
+
+.table td,
+.table th {
+    border: 4px solid #fff7f7;
+    padding: 8px;
+}
+
+.table tr:nth-child(odd) {
+    background-color: #e31837;
+}
+
+.table td button {
     margin: auto;
-    background-color: #006491;
+    background-color: transparent;
     font-family: "Archivo Black";
     color: #fff7f7;
     border-color: #fff7f7;
     text-align: center;
-    font-size: 60px;
+    font-size: 30px;
     padding: 14px 40px;
     border-radius: 12px;
 }
