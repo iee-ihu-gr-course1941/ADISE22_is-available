@@ -10,7 +10,9 @@
     <!--javascript -->
     <script src="js/index.js"></script>
     <script src="js/players.js"></script>
+    <script src="js/parties.js"></script>
     <script src="js/party.js"></script>
+    <script src="js/game.js"></script>
 
     <!--jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
@@ -44,7 +46,7 @@
     </div>
     <div id="wrap3" class="wrap" style="display: none;">
 
-        <table id="party_table" class="table">
+        <table id="parties_table" class="table">
             <tr>
                 <th>ID</th>
                 <th>Players</th>
@@ -57,14 +59,21 @@
     </div>
     <div id="wrap4" class="wrap" style="display: none;">
 
-        <table id="party_x_table" class="table">
+        <table id="party_table" class="table">
             <tr>
                 <th>ID</th>
                 <th>Player</th>
             </tr>
         </table>
 
-        <button id="start_game_button" class="button" onclick="start_game()">Start Game</button>
+        <button id="start_game_button" class="button" onclick="start_game(document.getElementsByTagName('label')[1].id)">Start Game</button>
+
+    </div>
+    <div id="wrap5" class="wrap" style="display: none;">
+
+        <table id="hand_table" class="table">
+            
+        </table>
 
     </div>
 </body>

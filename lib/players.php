@@ -1,5 +1,5 @@
 <?php
-function handle_player($method, $input)
+function handle_players($method, $input)
 {
     if ($method == 'PUT') {
         login($input);

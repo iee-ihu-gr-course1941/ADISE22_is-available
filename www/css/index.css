@@ -40,7 +40,7 @@ body {
     display: inline;
 }
 
-#username_label {
+label {
     font-family: "Archivo Black";
     padding: 14px 40px;
     font-size: 35px;

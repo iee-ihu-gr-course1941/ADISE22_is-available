@@ -2,7 +2,7 @@
 function handle_party($method, $input)
 {
 	if ($method == 'GET') {
-		get_party();
+		join_x_party($input);
 	} 
 	if ($method == 'POST') {
 		create_party($input);
@@ -12,11 +12,17 @@ function handle_party($method, $input)
 	}
 }
 
-function get_party()
+function join_x_party($input)
 { //GET
 	global $mysqli;
-	$sql = 'SELECT id,COUNT(playerid) as x FROM party GROUP BY id;';
+
+	//$partyid=$input['partyid'];
+
+	$partyid = $_GET['partyid'];
+
+	$sql = 'SELECT players.id,players.username,party.id as partyid FROM players JOIN party ON players.id=party.playerid where party.id=?;';
 	$st = $mysqli->prepare($sql);
+	$st->bind_param('i',$partyid);
 	$st->execute();
 	$res = $st->get_result();
 
@@ -36,7 +42,7 @@ function create_party($input)
 	$st->execute();
 	$res = $st->get_result();
 	$r = $res->fetch_all(MYSQLI_ASSOC);
-	$r[0]['c']=$r[0]['c']+11;
+	$r[0]['c']=$r[0]['c']+2;
 
 	//id of player
 	$sql = 'select id FROM players where username=?;';
@@ -64,6 +70,12 @@ function create_party($input)
 	$st = $mysqli->prepare($sql);
 	$st->bind_param('ii',$r[0]['c'],$r1[0]['id'] );
 	$st->execute();
+
+	$sql = 'SELECT distinct id FROM party where id=?';
+	$st = $mysqli->prepare($sql);
+	$st->bind_param('i',$r[0]['c']);
+	$st->execute();
+	$res = $st->get_result();
 
 	header('Content-type: application/json');
 	print json_encode($res->fetch_all(MYSQLI_ASSOC), JSON_PRETTY_PRINT);
@@ -100,6 +112,13 @@ function join_party($input)
     $st = $mysqli->prepare($sql);
     $st->bind_param('ii',$id, $r[0]['id']);
     $st->execute();
+	
+	$sql = 'SELECT distinct id FROM party where id=?';
+	$st = $mysqli->prepare($sql);
+	$st->bind_param('i',$id);
+	$st->execute();
+	$res = $st->get_result();
+
     header('Content-type: application/json');
     print json_encode($res->fetch_all(MYSQLI_ASSOC), JSON_PRETTY_PRINT);
 }
