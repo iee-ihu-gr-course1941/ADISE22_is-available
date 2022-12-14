@@ -11,7 +11,6 @@ function start_game(partyid) {
 }
 
 function success_game(data) {
-    //alert('success_game');
     partyid = data[0].partyid;
     gameid = data[0].id;
     alert('success_game');
@@ -36,7 +35,12 @@ function success_moirasma(data) {
     document.getElementById("wrap5").style.display = "block"
     //TO DO
     var i;
-    for (i = 0; i < data.length; i++) {
+    for (i = 0; i < data[0].tempcolumn; i++) {
+        const td1 = document.createElement("td");//keli
+        td1.innerHTML = '&#127024;';
+        document.getElementById("tr1").appendChild(td1);
+    }
+    for (i = 1; i < data.length; i++) {
         const td = document.createElement("td");//keli
         if (data[i].tempcolumn==0){
             td.innerHTML = '&#127025;';

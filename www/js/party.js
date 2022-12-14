@@ -27,9 +27,7 @@ function success_join_party(data) {
     document.getElementById("wrap3").style.display = "none";
     document.getElementById("wrap4").style.display = "block";
     partyid=data[0].id;
-    join_x_party(/*partyid*/);
-    /*$("#party_table tr td").remove();
-    get_parties();*/
+    join_x_party();
 }
 
 function error_party(data, y, z, c) {

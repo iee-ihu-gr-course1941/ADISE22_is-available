@@ -20,7 +20,7 @@ function join_x_party($input)
 
 	$partyid = $_GET['partyid'];
 
-	$sql = 'SELECT players.id,players.username,party.id as partyid FROM players JOIN party ON players.id=party.playerid where party.id=?;';
+	$sql = 'SELECT players.id,players.username,party.id as partyid FROM players JOIN party ON players.id=party.playerid where party.id=?';
 	$st = $mysqli->prepare($sql);
 	$st->bind_param('i',$partyid);
 	$st->execute();

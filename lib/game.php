@@ -8,7 +8,7 @@ function handle_game($method, $input)
 		moirasma($input);
 	}
 }
-function create_game($input)
+function create_game($input)//alages
 { //POST
 	global $mysqli;
 
@@ -52,7 +52,7 @@ function create_game($input)
 	header('Content-type: application/json');
 	print json_encode($res->fetch_all(MYSQLI_ASSOC), JSON_PRETTY_PRINT);
 }
-function moirasma($input)
+function moirasma($input)//alages
 { //PUT
     global $mysqli;
     $partyid = $input['partyid'];
@@ -88,9 +88,9 @@ function moirasma($input)
 	$res = $st->get_result();
 	$r2 = $res->fetch_all(MYSQLI_ASSOC);
 
-	$sql = 'CALL emfanise_ta_plakidia_toy_pekti(?, ?);';
+	$sql = 'CALL emfanise_ta_plakidia_toy_pekti(?);';
 	$st = $mysqli->prepare($sql);
-	$st->bind_param('ii',$gameid,$r2);
+	$st->bind_param('i',$gameid);
 	$st->execute();
 
 	$sql = 'SELECT tempcolumn FROM temp';
