@@ -1,4 +1,4 @@
-function start_game(partyid) { 
+function start_game(partyid) {
     $.ajax({
         url: "dominoes.php/game/",
         method: 'POST',
@@ -9,42 +9,129 @@ function start_game(partyid) {
         error: error_game
     });
 }
+
 function success_game(data) {
     //alert('success_game');
-    partyid=data[0].partyid;
-    gameid=data[0].id;
+    partyid = data[0].partyid;
+    gameid = data[0].id;
     alert('success_game');
     moirasma();
 }
-function error_game(data, y, z, c) {
-    var x = data.responseJSON;
-    alert(x.errormesg);
-}
-function moirasma(){
+
+function moirasma() {
     $.ajax({
         url: "dominoes.php/game/",
         method: 'PUT',
         dataType: "json",
         contentType: 'application/json',
-        data: JSON.stringify({ partyid:this.partyid, gameid:this.gameid }),
+        data: JSON.stringify({ partyid: this.partyid, gameid: this.gameid }),
         success: success_moirasma,
         error: error_game
     });
 }
+
 function success_moirasma(data) {
     alert('success_moirasma');
+    document.getElementById("wrap4").style.display = "none"
+    document.getElementById("wrap5").style.display = "block"
     //TO DO
-    /*var d;
-    const label = document.createElement("label");
-    label.innerText = 'Party id: '+data[0].partyid;
-    label.id=data[0].partyid;
-    label.style.textAlign= 'center';
-    label.style.display='block';
-    document.getElementById("wrap4").appendChild(label);
-    for (var i = 0; i < data.length; i++) {
-        d = data[i];
-        const tr = document.createElement("tr");
-        tr.innerHTML = '<tr> <td>' + d.id + '</td> <td>' + d.username + '</td> </tr>';
-        document.getElementById("party_table").appendChild(tr);
-    }*/
+    var i;
+    for (i = 0; i < data.length; i++) {
+        const td = document.createElement("td");//keli
+        if (data[i].tempcolumn==0){
+            td.innerHTML = '&#127025;';
+        }
+        ////////////////////////////////////////
+        if (data[i].tempcolumn==10){
+            td.innerHTML = '&#127032;';
+        }
+        if (data[i].tempcolumn==11){
+            td.innerHTML = '&#127033;';
+        }
+        ////////////////////////////////////////
+        if (data[i].tempcolumn==20){
+            td.innerHTML = '&#127039;';
+        }
+        if (data[i].tempcolumn==21){
+            td.innerHTML = '&#127040;';
+        }
+        if (data[i].tempcolumn==22){
+            td.innerHTML = '&#127041;';
+        }
+        ////////////////////////////////////////
+        if (data[i].tempcolumn==30){
+            td.innerHTML = '&#127046;';
+        }
+        if (data[i].tempcolumn==31){
+            td.innerHTML = '&#127047;';
+        }
+        if (data[i].tempcolumn==32){
+            td.innerHTML = '&#127048;';
+        }
+        if (data[i].tempcolumn==33){
+            td.innerHTML = '&#127049;';
+        }
+        ////////////////////////////////////////
+        if (data[i].tempcolumn==40){
+            td.innerHTML = '&#127053;';
+        }
+        if (data[i].tempcolumn==41){
+            td.innerHTML = '&#127054;';
+        }
+        if (data[i].tempcolumn==42){
+            td.innerHTML = '&#127055;';
+        }
+        if (data[i].tempcolumn==43){
+            td.innerHTML = '&#127056;';
+        }
+        if (data[i].tempcolumn==44){
+            td.innerHTML = '&#127057;';
+        }
+        ////////////////////////////////////////
+        if (data[i].tempcolumn==50){
+            td.innerHTML = '&#127060;';
+        }
+        if (data[i].tempcolumn==51){
+            td.innerHTML = '&#127061;';
+        }
+        if (data[i].tempcolumn==52){
+            td.innerHTML = '&#127062;';
+        }
+        if (data[i].tempcolumn==53){
+            td.innerHTML = '&#127063;';
+        }
+        if (data[i].tempcolumn==54){
+            td.innerHTML = '&#127064;';
+        }
+        if (data[i].tempcolumn==55){
+            td.innerHTML = '&#127065;';
+        }
+        ////////////////////////////////////////
+        if (data[i].tempcolumn==60){
+            td.innerHTML = '&#127067;';
+        }
+        if (data[i].tempcolumn==61){
+            td.innerHTML = '&#127068;';
+        }
+        if (data[i].tempcolumn==62){
+            td.innerHTML = '&#127069;';
+        }
+        if (data[i].tempcolumn==63){
+            td.innerHTML = '&#127070;';
+        }
+        if (data[i].tempcolumn==64){
+            td.innerHTML = '&#127071;';
+        }
+        if (data[i].tempcolumn==65){
+            td.innerHTML = '&#127072;';
+        }
+        if (data[i].tempcolumn==66){
+            td.innerHTML = '&#127073;';
+        }
+        document.getElementById("tr").appendChild(td);
+    }
+}
+function error_game(data, y, z, c) {
+    var x = data.responseJSON;
+    alert(x.errormesg);
 }

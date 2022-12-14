@@ -81,9 +81,20 @@ function moirasma($input)
 		$st->execute();
     }
 
-	$sql = 'SELECT playerid as xx FROM game where id=?';
+	$sql = 'SELECT playerid FROM game where id=?';
 	$st = $mysqli->prepare($sql);
 	$st->bind_param('i',$gameid);
+	$st->execute();
+	$res = $st->get_result();
+	$r2 = $res->fetch_all(MYSQLI_ASSOC);
+
+	$sql = 'CALL emfanise_ta_plakidia_toy_pekti(?, ?);';
+	$st = $mysqli->prepare($sql);
+	$st->bind_param('ii',$gameid,$r2);
+	$st->execute();
+
+	$sql = 'SELECT tempcolumn FROM temp';
+	$st = $mysqli->prepare($sql);
 	$st->execute();
 	$res = $st->get_result();
 

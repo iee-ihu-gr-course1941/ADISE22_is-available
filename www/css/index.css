@@ -89,3 +89,6 @@ label {
     padding: 14px 40px;
     border-radius: 12px;
 }
+#hand_table td {
+    font-size: 200px;
+}
