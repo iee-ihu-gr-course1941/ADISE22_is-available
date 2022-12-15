@@ -11,37 +11,20 @@ function start_game(partyid) {
 }
 
 function success_game(data) {
-    partyid = data[0].partyid;
-    gameid = data[0].id;
     alert('success_game');
-    moirasma();
-}
-
-function moirasma() {
-    $.ajax({
-        url: "dominoes.php/game/",
-        method: 'PUT',
-        dataType: "json",
-        contentType: 'application/json',
-        data: JSON.stringify({ partyid: this.partyid, gameid: this.gameid }),
-        success: success_moirasma,
-        error: error_game
-    });
-}
-
-function success_moirasma(data) {
-    alert('success_moirasma');
     document.getElementById("wrap4").style.display = "none"
     document.getElementById("wrap5").style.display = "block"
     //TO DO
     var i;
-    for (i = 0; i < data[0].tempcolumn; i++) {
+    for (i = 0; i < data[0].opponentsum; i++) {
         const td1 = document.createElement("td");//keli
         td1.innerHTML = '&#127024;';
         document.getElementById("tr1").appendChild(td1);
     }
     for (i = 1; i < data.length; i++) {
         const td = document.createElement("td");//keli
+        td.id=data[i].tempcolumn;
+        td.onclick = function() { domino(this.id); };
         if (data[i].tempcolumn==0){
             td.innerHTML = '&#127025;';
         }
@@ -134,6 +117,9 @@ function success_moirasma(data) {
         }
         document.getElementById("tr").appendChild(td);
     }
+}
+function domino(this_id) { 
+    alert(this_id);
 }
 function error_game(data, y, z, c) {
     var x = data.responseJSON;
