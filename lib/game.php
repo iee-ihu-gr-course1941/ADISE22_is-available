@@ -61,11 +61,6 @@ function domino($input)
 	$st->bind_param('ii',$gameid,$r[0]['id']);
 	$st->execute();
 
-	$sql = 'CALL emfanise_ta_plakidia_toy_pekti(?);';
-	$st = $mysqli->prepare($sql);
-	$st->bind_param('i',$gameid);
-	$st->execute();
-
 	$sql = 'SELECT * FROM temp';
 	$st = $mysqli->prepare($sql);
 	$st->execute();

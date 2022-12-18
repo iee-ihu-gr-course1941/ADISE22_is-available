@@ -2,7 +2,7 @@
 function handle_party($method, $input)
 {
 	if ($method == 'GET') {
-		join_x_party($input);
+		get_parties();
 	} 
 	if ($method == 'POST') {
 		create_party($input);
@@ -12,17 +12,11 @@ function handle_party($method, $input)
 	}
 }
 
-function join_x_party($input)
+function get_parties()
 { //GET
 	global $mysqli;
-
-	//$partyid=$input['partyid'];
-
-	$partyid = $_GET['partyid'];
-
-	$sql = 'SELECT players.id,players.username,party.id as partyid FROM players JOIN party ON players.id=party.playerid where party.id=?';
+	$sql = 'SELECT id,COUNT(playerid) as x FROM party GROUP BY id;';
 	$st = $mysqli->prepare($sql);
-	$st->bind_param('i',$partyid);
 	$st->execute();
 	$res = $st->get_result();
 
