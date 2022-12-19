@@ -36,8 +36,6 @@ function domino(this_id,gameid) {
 
 function success_domino(data) {
     alert("success_domino");
-    document.getElementById("tr").innerHTML="";
-    document.getElementById("tr1").innerHTML="";
     board(data); 
 }
 
@@ -46,11 +44,46 @@ function error_game(data, y, z, c) {
     alert(x.errormesg);
 }
 
+//edo
+function boneyard(game) {
+    $.ajax({
+        url: "dominoes.php/game/",
+        method: 'GET',
+        dataType: "json",
+        contentType: 'application/json',
+        data: { gameid: game},
+        success: success_domino,
+        error: error_game
+    });
+}
+
+function success_boneyard(data) {
+    alert("success_boneyard");
+    board(data); 
+}
+
 function board(data) {
-    const td = document.createElement("td");//keli
+    document.getElementById("tr").innerHTML="";
+    document.getElementById("tr1").innerHTML="";
     document.getElementById("tr2").innerHTML='';
-    td.innerHTML='&#127074;';
-    document.getElementById("tr2").appendChild(td);
+
+    const td2 = document.createElement("td");//keli
+    td2.innerHTML='&#127074;';
+    //edo
+    td2.onclick = function() { 
+        boneyard(document.getElementById(data[0].gameid).id)
+        /*$.ajax({
+            url: "dominoes.php/game/",
+            method: 'GET',
+            dataType: "json",
+            contentType: 'application/json',
+            data: { gameid: document.getElementById(data[0].gameid).id },
+            success: success_boneyard,
+            error: error_game
+        });*/
+    };
+    document.getElementById("tr2").appendChild(td2);
+
     var i;
     for (i = 0; i < data[1].tempcolumn; i++) {
         const td1 = document.createElement("td");//keli

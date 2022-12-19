@@ -7,6 +7,9 @@ function handle_game($method, $input)
 	if ($method == 'PUT') {
 		domino($input);
 	}
+	if ($method == 'GET') {
+		boneyard();
+	}
 }
 function create_game($input)
 { //POST
@@ -59,6 +62,27 @@ function domino($input)
 	$sql = 'CALL updategame(?, ?);';
 	$st = $mysqli->prepare($sql);
 	$st->bind_param('ii',$gameid,$r[0]['id']);
+	$st->execute();
+
+	$sql = 'SELECT * FROM temp';
+	$st = $mysqli->prepare($sql);
+	$st->execute();
+	$res = $st->get_result();
+
+	header('Content-type: application/json');
+	print json_encode($res->fetch_all(MYSQLI_ASSOC), JSON_PRETTY_PRINT);
+}
+function boneyard()
+{
+	global $mysqli;
+
+	//id of game
+	$gameid = $_GET['gameid'];
+	//$gameid=$input['gameid'];
+
+	$sql = 'CALL boneyard(?);';
+	$st = $mysqli->prepare($sql);
+	$st->bind_param('i',$gameid,);
 	$st->execute();
 
 	$sql = 'SELECT * FROM temp';
