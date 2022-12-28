@@ -26,24 +26,24 @@
 </head>
 
 <body>
-    <label id="username_label" onclick="openpopup()">?</label>
+    <label onclick="openpopup()">?</label>
     
     <div id="wrap1" class="wrap">
         
         <img id="dominoes_png" src="../lib/removebg-preview2.png">
 
-        <button id="play_button" class="button" onclick="play()">Play</button>
+        <button id="play_button"  onclick="play()">Play</button>
 
     </div>
     <div id="wrap2" class="wrap" style="display: none;">
 
-        <label id="username_label" for="username">Username:</label>
+        <label for="username">Username:</label>
 
         <input id="username" type="text" name="username" placeholder="Username">
 
-        <button id="login_button" class="button" onclick="login()">Login</button>
+        <button id="login_button"  onclick="login()">Login</button>
 
-        <button id="create_account_button" class="button" onclick="create_account()">Create Account</button>
+        <button id="create_account_button"  onclick="create_account()">Create Account</button>
 
     </div>
     <div id="wrap3" class="wrap" style="display: none;">
@@ -56,7 +56,7 @@
             </tr>
         </table>
 
-        <button id="create_party_button" class="button" onclick="create_party()">Create Party</button>
+        <button id="create_party_button"  onclick="create_party()">Create Party</button>
 
     </div>
     <div id="wrap4" class="wrap" style="display: none;">
@@ -68,8 +68,7 @@
             </tr>
         </table>
 
-        <button id="start_game_button" class="button"
-            onclick="start_game(document.getElementsByTagName('label')[2].id)">Start Game</button>
+        <button id="start_game_button" onclick="start_game(document.getElementsByTagName('label')[2].id)">Start Game</button>
 
     </div>
     <div id="wrap5" class="wrap" style="display: none;">

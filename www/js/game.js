@@ -52,7 +52,7 @@ function boneyard(game) {
         dataType: "json",
         contentType: 'application/json',
         data: { gameid: game},
-        success: success_domino,
+        success: success_boneyard,
         error: error_game
     });
 }
@@ -99,94 +99,164 @@ function board(data) {
         }else{
             flag=true;
         }
-        if (data[i].tempcolumn==0){
+
+
+        //alert (typeof data[i].tempcolumn);
+        //alert (data[i].tempcolumn.toString().substring(0,2));
+
+
+
+        if (data[i].tempcolumn.toString().substring(0,1)=='0'){
             td.innerHTML = '&#127025;';
         }
         ////////////////////////////////////////
-        if (data[i].tempcolumn==10){
+        if (data[i].tempcolumn.toString().substring(0,2)=='10'){
             td.innerHTML = '&#127032;';
+            if (data[i].tempcolumn.toString().charAt(4)=='1'){
+                td.innerHTML = '&#127026;';
+            }
         }
-        if (data[i].tempcolumn==11){
+        if (data[i].tempcolumn.toString().substring(0,2)=='11'){
             td.innerHTML = '&#127033;';
         }
         ////////////////////////////////////////
-        if (data[i].tempcolumn==20){
+        if (data[i].tempcolumn.toString().substring(0,2)=='20'){
             td.innerHTML = '&#127039;';
+            if (data[i].tempcolumn.toString().charAt(4)=='1'){
+                td.innerHTML = '&#127027;';
+            }
         }
-        if (data[i].tempcolumn==21){
+        if (data[i].tempcolumn.toString().substring(0,2)=='21'){
             td.innerHTML = '&#127040;';
+            if (data[i].tempcolumn.toString().charAt(4)=='1'){
+                td.innerHTML = '&#127034;';
+            }
         }
-        if (data[i].tempcolumn==22){
+        if (data[i].tempcolumn.toString().substring(0,2)=='22'){
             td.innerHTML = '&#127041;';
         }
         ////////////////////////////////////////
-        if (data[i].tempcolumn==30){
+        if (data[i].tempcolumn.toString().substring(0,2)=='30'){
             td.innerHTML = '&#127046;';
+            if (data[i].tempcolumn.toString().charAt(4)=='1'){
+                td.innerHTML = '&#127028;';
+            }
         }
-        if (data[i].tempcolumn==31){
+        if (data[i].tempcolumn.toString().substring(0,2)=='31'){
             td.innerHTML = '&#127047;';
+            if (data[i].tempcolumn.toString().charAt(4)=='1'){
+                td.innerHTML = '&#127035;';
+            }
         }
-        if (data[i].tempcolumn==32){
+        if (data[i].tempcolumn.toString().substring(0,2)=='32'){
             td.innerHTML = '&#127048;';
+            if (data[i].tempcolumn.toString().charAt(4)=='1'){
+                td.innerHTML = '&#127042;';
+            }
         }
-        if (data[i].tempcolumn==33){
+        if (data[i].tempcolumn.toString().substring(0,2)=='33'){
             td.innerHTML = '&#127049;';
         }
         ////////////////////////////////////////
-        if (data[i].tempcolumn==40){
+        if (data[i].tempcolumn.toString().substring(0,2)=='40'){
             td.innerHTML = '&#127053;';
+            if (data[i].tempcolumn.toString().charAt(4)=='1'){
+                td.innerHTML = '&#127029;';
+            }
         }
-        if (data[i].tempcolumn==41){
+        if (data[i].tempcolumn.toString().substring(0,2)=='41'){
             td.innerHTML = '&#127054;';
+            if (data[i].tempcolumn.toString().charAt(4)=='1'){
+                td.innerHTML = '&#127036;';
+            }
         }
-        if (data[i].tempcolumn==42){
+        if (data[i].tempcolumn.toString().substring(0,2)=='42'){
             td.innerHTML = '&#127055;';
+            if (data[i].tempcolumn.toString().charAt(4)=='1'){
+                td.innerHTML = '&#127043;';
+            }
         }
-        if (data[i].tempcolumn==43){
+        if (data[i].tempcolumn.toString().substring(0,2)=='43'){
             td.innerHTML = '&#127056;';
+            if (data[i].tempcolumn.toString().charAt(4)=='1'){
+                td.innerHTML = '&#127050;';
+            }
         }
-        if (data[i].tempcolumn==44){
+        if (data[i].tempcolumn.toString().substring(0,2)=='44'){
             td.innerHTML = '&#127057;';
         }
         ////////////////////////////////////////
-        if (data[i].tempcolumn==50){
+        if (data[i].tempcolumn.toString().substring(0,2)=='50'){
             td.innerHTML = '&#127060;';
+            if (data[i].tempcolumn.toString().charAt(4)=='1'){
+                td.innerHTML = '&#127030;';
+            }
         }
-        if (data[i].tempcolumn==51){
+        if (data[i].tempcolumn.toString().substring(0,2)=='51'){
             td.innerHTML = '&#127061;';
+            if (data[i].tempcolumn.toString().charAt(4)=='1'){
+                td.innerHTML = '&#127037;';
+            }
         }
-        if (data[i].tempcolumn==52){
+        if (data[i].tempcolumn.toString().substring(0,2)=='52'){
             td.innerHTML = '&#127062;';
+            if (data[i].tempcolumn.toString().charAt(4)=='1'){
+                td.innerHTML = '&#127044;';
+            }
         }
-        if (data[i].tempcolumn==53){
+        if (data[i].tempcolumn.toString().substring(0,2)=='53'){
             td.innerHTML = '&#127063;';
+            if (data[i].tempcolumn.toString().charAt(4)=='1'){
+                td.innerHTML = '&#127051;';
+            }
         }
-        if (data[i].tempcolumn==54){
+        if (data[i].tempcolumn.toString().substring(0,2)=='54'){
             td.innerHTML = '&#127064;';
+            if (data[i].tempcolumn.toString().charAt(4)=='1'){
+                td.innerHTML = '&#127058;';
+            }
         }
-        if (data[i].tempcolumn==55){
+        if (data[i].tempcolumn.toString().substring(0,2)=='55'){
             td.innerHTML = '&#127065;';
         }
         ////////////////////////////////////////
-        if (data[i].tempcolumn==60){
+        if (data[i].tempcolumn.toString().substring(0,2)=='60'){
             td.innerHTML = '&#127067;';
+            if (data[i].tempcolumn.toString().charAt(4)=='1'){
+                td.innerHTML = '&#127031;';
+            }
         }
-        if (data[i].tempcolumn==61){
+        if (data[i].tempcolumn.toString().substring(0,2)=='61'){
             td.innerHTML = '&#127068;';
+            if (data[i].tempcolumn.toString().charAt(4)=='1'){
+                td.innerHTML = '&#127038;';
+            }
         }
-        if (data[i].tempcolumn==62){
+        if (data[i].tempcolumn.toString().substring(0,2)=='62'){
             td.innerHTML = '&#127069;';
+            if (data[i].tempcolumn.toString().charAt(4)=='1'){
+                td.innerHTML = '&#127045;';
+            }
         }
-        if (data[i].tempcolumn==63){
+        if (data[i].tempcolumn.toString().substring(0,2)=='63'){
             td.innerHTML = '&#127070;';
+            if (data[i].tempcolumn.toString().charAt(4)=='1'){
+                td.innerHTML = '&#127052;';
+            }
         }
-        if (data[i].tempcolumn==64){
+        if (data[i].tempcolumn.toString().substring(0,2)=='64'){
             td.innerHTML = '&#127071;';
+            if (data[i].tempcolumn.toString().charAt(4)=='1'){
+                td.innerHTML = '&#127059;';
+            }
         }
-        if (data[i].tempcolumn==65){
+        if (data[i].tempcolumn.toString().substring(0,2)=='65'){
             td.innerHTML = '&#127072;';
+            if (data[i].tempcolumn.toString().charAt(4)=='1'){
+                td.innerHTML = '&#127066;';
+            }
         }
-        if (data[i].tempcolumn==66){
+        if (data[i].tempcolumn.toString().substring(0,2)=='66'){
             td.innerHTML = '&#127073;';
         }
         if (!flag){

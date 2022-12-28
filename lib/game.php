@@ -59,10 +59,21 @@ function domino($input)
 	$res = $st->get_result();
 	$r = $res->fetch_all(MYSQLI_ASSOC);
 
-	$sql = 'CALL updategame(?, ?);';
+	$sql = 'CALL domino(?, ?,@kati);';
 	$st = $mysqli->prepare($sql);
 	$st->bind_param('ii',$gameid,$r[0]['id']);
 	$st->execute();
+
+	$sql = 'SELECT @kati';
+	$st = $mysqli->prepare($sql);
+	$st->execute();
+	$res = $st->get_result();
+	$r = $res->fetch_all(MYSQLI_ASSOC);
+	if($r[0]['@kati']=="wrong"){
+		header("HTTP/1.1 400 Bad Request");
+        print json_encode(['errormesg' => "wrong"]);
+        exit;
+	}
 
 	$sql = 'SELECT * FROM temp';
 	$st = $mysqli->prepare($sql);

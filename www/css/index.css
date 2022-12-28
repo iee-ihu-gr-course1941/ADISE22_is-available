@@ -9,6 +9,13 @@ body {
     height: 100%;
 }
 
+label {
+    font-family: "Archivo Black";
+    padding: 14px 40px;
+    font-size: 35px;
+    color: #fff7f7;
+}
+
 .wrap {
     position: absolute;
     top: 50%;
@@ -22,7 +29,7 @@ body {
     max-width: 100%;
 }
 
-.button {
+button {
     display: block;
     margin: auto;
     background-color: #006491;
@@ -38,13 +45,6 @@ body {
 #login_button,
 #create_account_button {
     display: inline;
-}
-
-label {
-    font-family: "Archivo Black";
-    padding: 14px 40px;
-    font-size: 35px;
-    color: #fff7f7;
 }
 
 #username {
