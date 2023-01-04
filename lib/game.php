@@ -74,6 +74,7 @@ function domino($input)
         print json_encode(['errormesg' => "wrong"]);
         exit;
 	}
+	
 
 	$sql = 'SELECT * FROM temp';
 	$st = $mysqli->prepare($sql);
@@ -82,6 +83,12 @@ function domino($input)
 
 	header('Content-type: application/json');
 	print json_encode($res->fetch_all(MYSQLI_ASSOC), JSON_PRETTY_PRINT);
+
+	if($r[0]['@kati']!="ok"){
+		header('Content-type: application/json');
+        print json_encode(['successmesg' => "winner ".$r[0]['@kati']]);
+        exit;
+	}
 }
 function boneyard()
 {
